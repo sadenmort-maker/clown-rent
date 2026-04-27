@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клоун-Рент — Аренда костюмов</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="public-header sticky-top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="social-icons">
+                    <a href="#">🔵 VK</a> <a href="#">✈️ TG</a>
+                </div>
+                <small>clown-rent@mail.ru</small>
+            </div>
+            <div class="col-md-4 text-center">
+                <div style="font-size: 28px; font-weight: bold; color: var(--secondary-color);">🤡 КЛОУН-РЕНТ</div>
+            </div>
+            <div class="col-md-4 text-end">
+                <div>📞 +7 (3952) 00-00-00</div>
+                <button id="login-btn" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Вход</button>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    🛒 Корзина (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav class="main-nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="navbar-nav w-100 justify-content-between">
+            <a class="nav-link active-page" href="index.html">ГЛАВНАЯ</a>
+            <a class="nav-link" href="#catalog">КАТАЛОГ</a>
+            <a class="nav-link" href="#reviews">ОТЗЫВЫ</a>
+            <a class="nav-link" href="#contact-form">ОБРАТНАЯ СВЯЗЬ</a>
+            <a class="nav-link" href="#map">КОНТАКТЫ</a>
+            <a class="nav-link" href="admin.html" style="color: grey;">(ВХОД В АДМИНКУ)</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Главная</a></li>
+            <li class="breadcrumb-item active">Добро пожаловать</li>
+        </ol>
+    </nav>
+
+    <h1 class="text-center">Аренда клоунских костюмов в Иркутске</h1>
+
+    <div class="promo-slider">
+        <h2>🔥 АКЦИЯ: Вторая пара башмаков за полцены!</h2>
+    </div>
+
+    <h2 class="mb-4" id="catalog">Популярные костюмы</h2>
+    <div class="row" id="product-list">
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/cd/cf/30/cdcf30b0e9163723995dfae4b30a4cfc.jpg" alt="Костюм Классик" class="product-img">
+                <h4 class="product-title">Костюм "Классик"</h4>
+                <p><strong class="product-price">1200</strong> <strong>руб/сут.</strong></p>
+                <button class="btn btn-success w-100 btn-add-cart">В корзину</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/47/97/6a/47976ae3fbc24b9cad6b3928228e13b3.jpg" alt="Парик" class="product-img">
+                <h4 class="product-title">Парик "Рыжий"</h4>
+                <p><strong class="product-price">300</strong> <strong>руб/сут.</strong></p>
+                <button class="btn btn-success w-100 btn-add-cart">В корзину</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="https://i.pinimg.com/1200x/77/d4/2b/77d42b8acdb472b3769c372a62662d04.jpg" alt="Нос" class="product-img">
+                <h4 class="product-title">Нос-пищалка</h4>
+                <p><strong class="product-price">150</strong> <strong>руб/сут.</strong></p>
+                <button class="btn btn-success w-100 btn-add-cart">В корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-5" id="reviews">Отзывы</h2>
+    <div id="reviews-container">
+        <div class="review-box clearfix">
+            <img src="https://i.pinimg.com/1200x/e3/a7/3c/e3a73c87ef04968e3375d6a0fa16ff49.jpg" alt="Отзыв" class="review-screenshot">
+            <p><strong>Артем П.</strong> ⭐⭐⭐⭐⭐</p>
+            <p><i>«Качество огонь, швы не трещат!»</i></p>
+        </div>
+    </div>
+
+    <h2 class="mt-5" id="contact-form">Напишите нам</h2>
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <form id="feedback-form" class="p-4 border rounded bg-white shadow-sm">
+                <div class="mb-3">
+                    <label class="form-label">Ваше имя</label>
+                    <input type="text" id="form-name" class="form-control" required minlength="2">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="form-email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Сообщение</label>
+                    <textarea id="form-message" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Отправить клоунам</button>
+                <div id="form-status" class="mt-2"></div>
+            </form>
+        </div>
+        <div class="col-md-6" id="map">
+            <p>📍 <strong>Наш адрес:</strong> Иркутск, ул. Ленина, 11 (корпус БГУ)</p>
+            <a href="https://yandex.com/maps/-/CPGsvA9R" target="_blank" class="map-link">
+                <div class="contact-map">
+                    <span>Нажмите, чтобы открыть карту</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title">Ваша корзина 🛒</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="cart-items-list" class="list-group mb-3">
+                    </ul>
+                <div class="text-end fw-bold">
+                    Итого: <span id="cart-total">0</span> руб.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-success" onclick="alert('Заказ оформлен!')">Оформить аренду</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Вход в аккаунт 🤡</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <form id="auth-form">
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="login-email" class="form-control" required placeholder="clown@mail.ru">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Пароль</label>
+                        <input type="password" id="login-password" class="form-control" required minlength="4" placeholder="••••">
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="py-4 bg-light mt-5 border-top">
+    <div class="container text-center">
+        © 2026 Клоун-Рент | <a href="#catalog">Каталог</a> | <a href="#map">Контакты</a>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
